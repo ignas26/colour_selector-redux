@@ -1,0 +1,28 @@
+
+.array{
+    margin-top:100px;
+    display:flex;
+    justify-content:space-around;
+    .remainingColours{
+        flex: 1;
+        user-select:none;
+        cursor:pointer;
+    }
+    .currentColour{
+        position:relative;
+        flex: 2;
+        //transition: 0.1s;
+    }
+    p{
+        color:white;
+        line-height:1.3;
+        padding:30px;
+    }
+    .name{
+        font-size:24px;
+        position:absolute;
+        top:-40px;
+        left:0;
+
+    }
+}

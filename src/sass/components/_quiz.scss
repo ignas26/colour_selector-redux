@@ -1,0 +1,16 @@
+.content{
+    display:flex;
+    justify-content:space-around;
+    margin-top:80px;
+    a{
+        width:7%
+    }
+    .colour{
+        width:70%;
+        min-height:170px;
+        cursor:pointer;
+        &:hover{
+            border:2px solid black;
+        }
+    }
+}
