@@ -7,7 +7,8 @@
     }
     .colour{
         width:90%;
-        min-height:250px;
+        //min-height:250px;
+        max-height: 155px;
         box-sizing:border-box;
         cursor:pointer;
         &:hover{

@@ -7,7 +7,9 @@ import {connect} from 'react-redux';
 class QuizGame extends React.Component {
 state={
   squares:[],
-  level:''
+  level:1,
+  color:'',
+  values:[]
 };
 
   componentDidMount () {
@@ -17,30 +19,49 @@ state={
 
 renderSquare = () => {
 
+  const url = this.props.match.params.colour;
+
+  let activeColour = this.props.variety.filter(item=>{
+    return item.colour===url});
+
+  const r = activeColour[0].values[0];
+  const g = activeColour[0].values[1];
+  const b = activeColour[0].values[2];
+
+
+  const newValue = [r, g, b];
+
     let colours = [];
-    for (let i = 0; i < 95; i++) {
-      colours.push('rgb(255, 100, 100)')
+    for (let i = 0; i < 49; i++) {
+     colours.push(`rgb(${newValue})`)
     }
 
-    for (let i = 95; i < 100; i++) {
-      colours.push('rgb(255, 0, 200)')
+    for (let i = 50; i < 55; i++) {
+      colours.push(`rgb(${newValue[0]-75/this.state.level},${newValue[1]},${newValue[2]})`)
     }
+
+
 
     const shuffle = _.shuffle(colours);
     this.setState({
       squares: shuffle
-    })
+    });
+  console.log(this.state.squares);
+
   };
-
-
 
 
   render() {
 
-    // const url = this.props.match.params.colours;
+    // const url = this.props.match.params.colour;
     //
-    // let colour = this.props.colours.colours.filter(c=>c.name===url);
-    // colour=colour[0];
+    // let activeColour = this.props.variety.filter(item=>{
+    //     return item.colour===url});
+    //
+    // const r = activeColour[0].values[0];
+    // const g = activeColour[0].values[1];
+    // const b = activeColour[0].values[2];
+
 
   const squares = this.state.squares.map((square, i)=>{
     return <div key={i} className="singleBlock" style={{backgroundColor: square}}></div>
@@ -48,22 +69,16 @@ renderSquare = () => {
 
     return (
         <div className="allBlocks">
-        <div>
-        {squares};
-        </div>
-
-        <div>
-        {/*{colour}*/}
-        </div>
+        {squares}
         </div>
     )
   }
 }
 
 const mapStateToProps=(state)=>{
-  return{colours:state.colours}
+  return{variety:state.variety}
 };
 
 
 
-export default connect(mapStateToProps)(QuizGame);
+export default connect(mapStateToProps)(QuizGame)

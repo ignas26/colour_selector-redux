@@ -1,7 +1,7 @@
 const colourArray={
   currentColour:'',
-  colours:[{name:'Brown', colour:'brown', about:'Brown, the color of earth, wood, stone, wholesomeness, reliability, elegance, security, healing, home, grounding, foundations, stability, warmth, and honesty, is a natural, neutral color that is typically associated with the seasons of fall and winter'},
-    {name:'Red', colour:'red', about:'Red is the color of fire and blood, so it is associated with energy, war, danger, strength, power, determination as well as passion, desire, and love. Red is a very emotionally intense color. It enhances human metabolism, increases respiration rate, and raises blood pressure'},
+  colours:[{name:'Red', colour:'red', about:'Red is the color of fire and blood, so it is associated with energy, war, danger, strength, power, determination as well as passion, desire, and love. Red is a very emotionally intense color. It enhances human metabolism, increases respiration rate, and raises blood pressure'},
+    {name:'Brown', colour:'brown', about:'Brown, the color of earth, wood, stone, wholesomeness, reliability, elegance, security, healing, home, grounding, foundations, stability, warmth, and honesty, is a natural, neutral color that is typically associated with the seasons of fall and winter'},
     {name:'Orange', colour:'orange', about:'Orange combines the energy of red and the happiness of yellow. It is associated with joy, sunshine, and the tropics. Orange represents enthusiasm, fascination, happiness, creativity, determination, attraction, success, encouragement, and stimulation. Orange is the color of fall and harvest'},
     {name:'Amber', colour:'sandybrown', about:'The color amber is a pure chroma color, located on the color wheel midway between the colors of gold and orange. The color name is derived from the material also known as amber, which is commonly found in a range of yellow-orange-brown-red colors; likewise, as a color amber can refer to a range of yellow-orange colors'},
     {name:'Yellow', colour:'yellow', about:'On one hand yellow stands for freshness, happiness, positivity, clarity, energy, optimism, enlightenment, remembrance, intellect, honor, loyalty, and joy, but on the other, it represents cowardice and deceit'},
@@ -14,5 +14,3 @@ const colourArray={
 };
 
 export default colourArray
-
-//nepaejo export default colourArray virsuje
