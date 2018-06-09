@@ -8,7 +8,8 @@ class QuizGame extends React.Component {
     squares: [],
     level: 1,
     color: '',
-    clicks: []
+    clicks: [],
+    correct:[],
   };
 
   componentDidMount() {
@@ -18,8 +19,31 @@ class QuizGame extends React.Component {
   clickHandler = (i) => {
     const clicks = [...this.state.clicks];
     clicks[i] = !clicks[i];
-    this.setState({clicks})
+    this.setState({clicks});
   };
+
+
+
+newLevel = () =>{
+
+  const newLevel =this.state.level+1;
+  this.setState({level: newLevel});
+  this.setState({clicks: ''});
+  this.setState({correct: ''});
+  this.renderSquare();
+  };
+
+correctTries =()=> {
+  console.log(this.state.clicks);
+
+    const clicked = [...this.state.clicks].filter(click => {
+      return click === true
+    });
+    console.log(clicked);
+    this.setState({correct: clicked}, function(){
+      if (this.state.correct.length === 5) return this.newLevel()
+    });
+};
 
 
   renderSquare = () => {
@@ -48,8 +72,6 @@ class QuizGame extends React.Component {
       colours.push(`rgb(${newValue[0] + 100 / this.state.level},${newValue[1] + 100 / this.state.level},${newValue[2] + 150 / this.state.level})`);
       clicks.push(true);
     }
-    console.log(clicks);
-    console.log(colours);
 
     const shuffle = _.shuffle(colours);
     this.setState({
@@ -70,9 +92,21 @@ class QuizGame extends React.Component {
       </div>
     });
 
+
     return (
-        <div className="allBlocks">
+        <div>
+
+        <h1>Jūsų dabartinis lygmuo: {this.state.level}</h1>
+          <div className="allBlocks">
           {squares}
+        </div>
+
+          <div
+          onClick={() => this.correctTries()}
+          className="nl-button"
+          style={{backgroundColor: this.props.match.params.colour}}
+          >next level
+        </div>
         </div>
     )
   }
