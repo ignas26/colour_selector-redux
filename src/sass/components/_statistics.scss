@@ -1,0 +1,42 @@
+.statistics{
+    h1{
+        font-size:42px;
+        text-align:center;
+    }
+    .red-title{
+        color:red;
+    }
+    .red{
+        color:red;
+        user-select:none;
+        cursor:pointer;
+    }
+    .blue{
+        color:blue;
+        user-select:none;
+        cursor:pointer;
+    }
+    h2{
+        text-align:center;
+        font-size:18px;
+        width:300px;
+        margin:auto;
+    }
+    .bars{
+        min-height:400px;
+        width:90%;
+        margin:auto;
+        display:flex;
+        justify-content:space-between;
+        .bar{
+            margin:20px 5px;
+            width:10%;
+            text-align:center;
+            color:white;
+            height:60px;
+            p{
+            margin-top: 0;
+            }
+        }
+    }
+}

@@ -5,6 +5,8 @@ import Content from './components/Content';
 import Array from './components/Array';
 import Quiz from './components/Quiz';
 import QuizGame from './components/QuizGame';
+import Statistics from './components/Statistics';
+import Gameover from './components/Gameover';
 
 class AppRoutes extends React.Component{
   render(){
@@ -17,6 +19,8 @@ class AppRoutes extends React.Component{
               <Route path='/array' component={Array}/>
               <Route exact path='/quiz' component={Quiz}/>
               <Route exact path='/quiz/game/:colour' component={QuizGame}/>
+              <Route exact path='/gameover' component={Gameover}/>
+              <Route exact path='/statistics' component={Statistics}/>
             </Switch>
           </div>
         </BrowserRouter>

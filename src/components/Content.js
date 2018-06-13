@@ -18,12 +18,15 @@ class Content extends React.Component{
       </Link>
     });
     return(
-        <div className="content">
+        <div>
+        <h1 className="main-logo">colour selector</h1>
+          <div className="content">
           {colours}
+        </div>
         </div>
     );
   };
-};
+}
 
 const mapStateToProps=(state)=>{
   return{colours:state.colours}

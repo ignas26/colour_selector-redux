@@ -39,9 +39,15 @@ correctTries =()=> {
     const clicked = [...this.state.clicks].filter(click => {
       return click === true
     });
+
     console.log(clicked);
     this.setState({correct: clicked}, function(){
-      if (this.state.correct.length === 5) return this.newLevel()
+      if (this.state.correct.length === 5){
+        return this.newLevel();
+      }else{
+        this.props.resultsHandler(this.props.match.params.colour, this.state.level);
+        this.props.history.push('/gameover');
+      }
     });
 };
 
@@ -73,10 +79,29 @@ correctTries =()=> {
       clicks.push(true);
     }
 
-    const shuffle = _.shuffle(colours);
-    this.setState({
-      squares: shuffle
+    console.log(colours);
+    console.log(clicks);
+
+    const temporaryClicks = colours.map((item, i) => {
+      clicks.filter((click, idx) => {
+        return idx === i
+      });
+      return temporaryClicks;
     });
+    console.log(temporaryClicks);
+
+
+
+    const shuffle = _.shuffle(colours);
+    this.setState({squares: shuffle});
+
+
+
+
+      //console.log(this.state.squares);
+
+
+
   };
 
 
@@ -96,7 +121,7 @@ correctTries =()=> {
     return (
         <div>
 
-        <h1>Jūsų dabartinis lygmuo: {this.state.level}</h1>
+        <h1>Dabartinis lygmuo: {this.state.level}</h1>
           <div className="allBlocks">
           {squares}
         </div>
@@ -112,9 +137,18 @@ correctTries =()=> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state)=>{
   return {variety: state.variety}
 };
 
+const mapDispatchToProps= (dispatch)=>{
+  return{
+    resultsHandler(colour, result){
+      dispatch({ type: 'RESULTS_HANDLER',
+                  payload: [colour, result] })
+    }
+  };
+};
 
-export default connect(mapStateToProps)(QuizGame)
+
+export default connect(mapStateToProps,mapDispatchToProps)(QuizGame)

@@ -1,28 +1,48 @@
 
 .array{
-    margin-top:100px;
-    display:flex;
-    justify-content:space-around;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+    padding-bottom: 50px;
+
     .remainingColours{
-        flex: 1;
-        user-select:none;
-        cursor:pointer;
+        display: inline-block;
+        width: 80px;
+        margin: 2px;
+        transition: 2.2s;
+        vertical-align: top;
+        overflow: hidden;
+        background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 10%);
+        border-radius: 10px;
+        height: 350px;
+        cursor: pointer;
     }
     .currentColour{
-        position:relative;
-        flex: 2;
-        //transition: 0.1s;
+        width: 500px;
+        display: inline-block;
+        height: 200px;
+        margin: 50px 2px;
+        transition: 1.6s;
+        text-align: left;
+        font-size: 16px;
+        padding: 20px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 155, 0) 60%);
+        border-radius: 8px;
+        font-weight: 600;
+        position: relative;
     }
     p{
         color:white;
         line-height:1.3;
-        padding:30px;
+        padding-top: 45px;
     }
     .name{
-        font-size:24px;
+        font-size:26px;
         position:absolute;
-        top:-40px;
+        top:-45px;
         left:0;
-
     }
+
 }

@@ -18,13 +18,15 @@ class Quiz extends React.Component{
       </Link>
     });
     return(
+        <div>
         <div className="content">
-          <h1>pasirinkite spalvą:</h1>
+          <h1 className="choose-colour">pasirinkite spalvą:</h1>
           {colours}
+        </div>
         </div>
     );
   };
-};
+}
 
 const mapStateToProps=(state)=>{
   return{colours:state.colours}

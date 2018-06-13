@@ -1,7 +1,10 @@
 .content{
-    display:flex;
-    justify-content:space-around;
-    margin-top:80px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+    padding-bottom: 50px;
     a{
         width:7%
     }
@@ -15,4 +18,20 @@
             border:2px solid black;
         }
     }
+}
+
+
+.main-logo {
+    bottom: 5px;
+    font-size: 95px;
+    font-family: 'Architects Daughter', cursive;
+    color: rgba(205, 205, 205, 0.555);
+    background: -webkit-linear-gradient(#aaa, rgba(150, 140, 105, 0.888));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    transform: translate(-30%, -50%);
+    user-select: none;
 }
