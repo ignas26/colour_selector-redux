@@ -8,48 +8,51 @@ class QuizGame extends React.Component {
     squares: [],
     level: 1,
     color: '',
-    clicks: [],
-    correct:[],
+    newValue: []
   };
 
   componentDidMount() {
     this.renderSquare();
   }
 
+
   clickHandler = (i) => {
-    const clicks = [...this.state.clicks];
-    clicks[i] = !clicks[i];
-    this.setState({clicks});
+    const newSquares = this.state.squares;
+    newSquares[i][1]=!this.state.squares[i][1];
+    this.setState({squares:newSquares});
   };
 
 
+  newLevel = () => {
 
-newLevel = () =>{
-
-  const newLevel =this.state.level+1;
-  this.setState({level: newLevel});
-  this.setState({clicks: ''});
-  this.setState({correct: ''});
-  this.renderSquare();
+    const newLevel = this.state.level + 1;
+    this.setState({level: newLevel});
+    this.renderSquare();
   };
 
-correctTries =()=> {
-  console.log(this.state.clicks);
+  correctTries = () => {
+    const mainColour = `rgb(${this.state.newValue})`;
 
-    const clicked = [...this.state.clicks].filter(click => {
-      return click === true
-    });
+    const score=this.state.squares.reduce((total, item)=>{
+      if(item[0]!==mainColour && item[1]===true){
+        total+=1;
+      }
+      return total;
+    },0);
+    const clicks=this.state.squares.reduce((clicks, item)=>{
+      if(item[1]===true){
+        clicks+=1;
+      }
+      return clicks;
+    },0);
 
-    console.log(clicked);
-    this.setState({correct: clicked}, function(){
-      if (this.state.correct.length === 5){
+      if (score === 5 && clicks === 5) {
         return this.newLevel();
-      }else{
+      } else {
         this.props.resultsHandler(this.props.match.params.colour, this.state.level);
         this.props.history.push('/gameover');
       }
-    });
-};
+  };
 
 
   renderSquare = () => {
@@ -66,89 +69,71 @@ correctTries =()=> {
 
 
     const newValue = [r, g, b];
-    const clicks = [];
-
+    this.setState({newValue});
     let colours = [];
+
+    const mainColour = `rgb(${newValue})`;
+    const correct = `rgb(${newValue[0] + 100 / this.state.level},${newValue[1] + 100 / this.state.level},${newValue[2] + 150 / this.state.level})`;
+
     for (let i = 0; i < 49; i++) {
-      colours.push(`rgb(${newValue})`);
-      clicks.push(false)
+      const variable = [mainColour, false];
+      colours.push(variable)
     }
 
     for (let i = 50; i < 55; i++) {
-      colours.push(`rgb(${newValue[0] + 100 / this.state.level},${newValue[1] + 100 / this.state.level},${newValue[2] + 150 / this.state.level})`);
-      clicks.push(true);
+      const variable = [correct, false];
+      colours.push(variable);
     }
-
-    console.log(colours);
-    console.log(clicks);
-
-    const temporaryClicks = colours.map((item, i) => {
-      clicks.filter((click, idx) => {
-        return idx === i
-      });
-      return temporaryClicks;
-    });
-    console.log(temporaryClicks);
-
-
 
     const shuffle = _.shuffle(colours);
     this.setState({squares: shuffle});
-
-
-
-
-      //console.log(this.state.squares);
-
-
+    //console.log(this.state.squares);
 
   };
 
+    render(){
+  const squares = this.state.squares.map((square, i) => {
+    return <div
+        key={i}
+        onClick={() => this.clickHandler(i)}
+        className={square[1]? "activeBlock" : "singleBlock"}
+        style={{backgroundColor: square[0]}}
+    >
+    </div>
+  });
 
-  render() {
+      return (
+          <div>
+            <h1>Dabartinis lygmuo: {this.state.level}</h1>
+            <div className="allBlocks">
+              {squares}
+            </div>
 
-    const squares = this.state.squares.map((square, i) => {
-      return <div
-          key={i}
-          onClick={() => this.clickHandler(i)}
-          className={this.state.clicks[i]? "activeBlock" : "singleBlock"}
-          style={{backgroundColor: square}}
-      >
-      </div>
-    });
-
-
-    return (
-        <div>
-
-        <h1>Dabartinis lygmuo: {this.state.level}</h1>
-          <div className="allBlocks">
-          {squares}
-        </div>
-
-          <div
-          onClick={() => this.correctTries()}
-          className="nl-button"
-          style={{backgroundColor: this.props.match.params.colour}}
-          >next level
-        </div>
-        </div>
-    )
-  }
+            <div
+                onClick={() => this.correctTries()}
+                className="nl-button"
+                style={{backgroundColor: this.props.match.params.colour}}
+            >next level
+            </div>
+          </div>
+      )
+    }
 }
 
-const mapStateToProps = (state)=>{
-  return {variety: state.variety}
-};
-
-const mapDispatchToProps= (dispatch)=>{
-  return{
-    resultsHandler(colour, result){
-      dispatch({ type: 'RESULTS_HANDLER',
-                  payload: [colour, result] })
-    }
+  const mapStateToProps = (state) => {
+    return {variety: state.variety}
   };
-};
+
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      resultsHandler(colour, result) {
+        dispatch({
+          type: 'RESULTS_HANDLER',
+          payload: [colour, result]
+        })
+      }
+    };
+  };
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(QuizGame)
