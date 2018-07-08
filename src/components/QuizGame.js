@@ -33,20 +33,20 @@ class QuizGame extends React.Component {
   correctTries = () => {
     const mainColour = `rgb(${this.state.newValue})`;
 
-    const score=this.state.squares.reduce((total, item)=>{
+    const guess=this.state.squares.reduce((total, item)=>{
       if(item[0]!==mainColour && item[1]===true){
         total+=1;
       }
       return total;
     },0);
-    const clicks=this.state.squares.reduce((clicks, item)=>{
+    const clicked=this.state.squares.reduce((clicks, item)=>{
       if(item[1]===true){
         clicks+=1;
       }
       return clicks;
     },0);
 
-      if (score === 5 && clicks === 5) {
+      if (guess === 5 && clicked === 5) {
         return this.newLevel();
       } else {
         this.props.resultsHandler(this.props.match.params.colour, this.state.level);

@@ -1,20 +1,40 @@
-.content{
-    display:flex;
-    justify-content:space-around;
-    margin-top:80px;
-    a{
-        width:7%
+.content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 80px;
+    a {
+        width: 7%
     }
-    .colour{
-        width:70%;
-        min-height:170px;
-        cursor:pointer;
-        &:hover{
-            border:2px solid black;
+    .colour {
+        width: 70%;
+        min-height: 170px;
+        cursor: pointer;
+        &:hover {
+            border: 2px solid black;
         }
     }
 }
 
-.choose-colour{
+.choose-colour {
     font-family: 'Architects Daughter', cursive;
+}
+
+.chalkboard {
+    background-color: whitesmoke;
+    background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(lightslategray .1em, transparent .1em);
+    background-size: 100% 1.2em;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.chalkboard span{
+    font-family: 'Architects Daughter', cursive;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.text{
+    font-family: 'Architects Daughter', cursive;
+    font-size: 38px;
 }
