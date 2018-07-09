@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05bcb205-cbc9-459e-ab7b-7c4cdeab8970" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/404.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/sass/components/_404.scss" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/AppRoutes.js" afterPath="$PROJECT_DIR$/src/AppRoutes.js" />
-      <change beforePath="$PROJECT_DIR$/src/sass/main.scss" afterPath="$PROJECT_DIR$/src/sass/main.scss" />
-    </list>
+    <list default="true" id="05bcb205-cbc9-459e-ab7b-7c4cdeab8970" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -369,31 +363,6 @@
               <item name="redux-colour_selector" type="b2602c69:ProjectViewProjectNode" />
               <item name="redux-colour_selector" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="redux-colour_selector" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redux-colour_selector" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="array" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="redux-colour_selector" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redux-colour_selector" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="redux-colour_selector" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redux-colour_selector" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="reducers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="redux-colour_selector" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redux-colour_selector" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="sass" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -488,12 +457,12 @@
       <workItem from="1531049062976" duration="21522000" />
       <workItem from="1531072477661" duration="3814000" />
       <workItem from="1531125703592" duration="457000" />
-      <workItem from="1531148297215" duration="2623000" />
+      <workItem from="1531148297215" duration="2990000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221886000" />
+    <option name="totallyTimeSpent" value="222253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="7" />

@@ -1,6 +1,11 @@
 {
   "name": "redux-colour_selector",
   "version": "0.1.0",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:9000"
+    }
+  },
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
